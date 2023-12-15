@@ -77,6 +77,7 @@ const TutorialList = ({ tutorials, getTutorial }) => {
         handleClose={handleClose}
         show={show}
         editData={editData}
+     getTutorial={getTutorial}
       />
     </div>
   );
