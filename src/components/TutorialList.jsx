@@ -1,8 +1,20 @@
 import { FaEdit } from "react-icons/fa";
 import { AiFillDelete } from "react-icons/ai";
 import axios from "axios";
+import EditTutorial from "./EditTutorial";
+import { useState } from "react";
 
 const TutorialList = ({ tutorials, getTutorial }) => {
+  const [show, setShow] = useState(false);
+  const [editData, setEditData] = useState("");
+  const handleClose = () => {
+    setShow(false);
+  };
+  const handleShow = (item) => {
+    setEditData(item);
+    setShow(true);
+  };
+
   // const tutorials = [
   //   {
   //     id: 1,
@@ -46,6 +58,7 @@ const TutorialList = ({ tutorials, getTutorial }) => {
                     size={20}
                     type="button"
                     className="me-2 text-warning"
+                    onClick={() => handleShow(item)}
                   />
                   <AiFillDelete
                     size={22}
@@ -59,6 +72,12 @@ const TutorialList = ({ tutorials, getTutorial }) => {
           })}
         </tbody>
       </table>
+      <EditTutorial
+        handleShow={handleShow}
+        handleClose={handleClose}
+        show={show}
+        editData={editData}
+      />
     </div>
   );
 };

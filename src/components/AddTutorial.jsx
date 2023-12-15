@@ -11,12 +11,12 @@ const AddTutorial = ({ getTutorial }) => {
     console.log(newTutorial);
     postTutorial(newTutorial);
     getTutorial();
-    setDescription("")
-    setTitle("")
+    setDescription("");
+    setTitle("");
   };
   const postTutorial = async (newTutorial) => {
     // const URL = "https://tutorial-api.fullstack.clarusway.com/tutorials/";
-     await axios.post(process.env.REACT_APP_URL, newTutorial);
+    await axios.post(process.env.REACT_APP_URL, newTutorial);
   };
 
   return (
