@@ -1,12 +1,23 @@
-import { useState } from "react"
+import axios from "axios";
+import { useState } from "react";
 
-const AddTutorial = () => {
-  const [title, setTitle] = useState("")
-  const [description, setDescription] = useState("")
+const AddTutorial = ({ getTutorial }) => {
+  const [title, setTitle] = useState("");
+  const [description, setDescription] = useState("");
 
   const handleSubmit = (e) => {
-    e.preventDefault()
-  }
+    e.preventDefault();
+    const newTutorial = { title, description };
+    console.log(newTutorial);
+    postTutorial(newTutorial);
+    getTutorial();
+    setDescription("")
+    setTitle("")
+  };
+  const postTutorial = async (newTutorial) => {
+    // const URL = "https://tutorial-api.fullstack.clarusway.com/tutorials/";
+     await axios.post(process.env.REACT_APP_URL, newTutorial);
+  };
 
   return (
     <div className="container text-center mt-4">
@@ -45,7 +56,7 @@ const AddTutorial = () => {
         </button>
       </form>
     </div>
-  )
-}
+  );
+};
 
-export default AddTutorial
+export default AddTutorial;
