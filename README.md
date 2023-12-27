@@ -14,4 +14,8 @@
 
 # Deployed Frontend
 
-## https://tutorial.fullstack.clarusway.com/
+## Expected Outcome
+
+![tutorial app](/tutorial-app-full-stack.gif)
+
+

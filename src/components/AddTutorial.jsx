@@ -51,7 +51,7 @@ const AddTutorial = ({ getTutorial }) => {
             required
           />
         </div>
-        <button type="submit" className="btn btn-danger mb-4">
+        <button type="submit" className="btn btn-danger mb-4" handleSubmit={handleSubmit}>
           Submit
         </button>
       </form>
